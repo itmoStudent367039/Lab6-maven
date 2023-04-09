@@ -2,19 +2,23 @@ package org.example.application;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.commands.CommandEditor;
+import org.example.exceptions.ExecuteException;
 import org.example.products.Product;
 
 import java.util.Collection;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Scanner;
+
 @Slf4j
-public class Application<T extends Collection<Product>> {
-    private final CommandEditor<T> commandEditor;
+public class Application {
+    private final CommandEditor commandEditor;
     private final Scanner scanner = new Scanner(System.in);
-    public Application(CommandEditor<T> editor) {
+
+    public Application(CommandEditor editor) {
         commandEditor = editor;
     }
+
     /**
      * split(" ", 2) - только для консольного ввода (когда путь в файлу читаю, чтобы пробелы не учитывались при split(),
      * script чтение в самой комманде;
@@ -38,9 +42,19 @@ public class Application<T extends Collection<Product>> {
         }
         return input;
     }
+
     public void run() {
         while (true) {
-            commandEditor.execute(getUserInput(), false);
+            try {
+                commandEditor.execute(getUserInput());
+            } catch (ExecuteException e) {
+                if (!Objects.isNull(e.getCause())) {
+                    log.error(e.getMessage(), e.getCause());
+                } else {
+                    log.error(e.getMessage(), e);
+                }
+                System.out.println(e.getMessage());
+            }
         }
     }
 }

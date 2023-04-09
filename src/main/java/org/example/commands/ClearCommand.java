@@ -1,28 +1,20 @@
 package org.example.commands;
-import org.example.collection.ProductCollection;
-import org.example.products.Product;
 
-import java.util.Collection;
-
-public class ClearCommand <T extends Collection<Product>> extends Command<T, Product> {
-    private final String description = "clear: очистить коллекцию";
+public class ClearCommand extends Command {
     private final String name = "clear";
+    private final Client client;
 
-    public ClearCommand(ProductCollection<T> collection) {
-        super(collection);
-    }
-
-    @Override
-    public String getDescription() {
-        return description;
+    public ClearCommand(Client client) {
+        this.client = client;
     }
 
     @Override
     public String getName() {
         return name;
     }
+
     @Override
-    public void execute(boolean scriptFlag, String ... args) {
-        super.getCollection().clear();
+    public void execute(String... args) {
+        client.send(CommandType.CLEAR, null);
     }
 }

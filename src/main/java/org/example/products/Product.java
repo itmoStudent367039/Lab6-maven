@@ -8,13 +8,14 @@ import lombok.Setter;
 import org.example.exceptions.ValidException;
 
 
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 
 @JsonAutoDetect
 @Setter
 @Getter
-public class Product implements Valid, Comparable<Product> {
+public class Product implements Valid, Comparable<Product>, Serializable {
     private UUID id;
     private String name;
     private Coordinates coordinates;

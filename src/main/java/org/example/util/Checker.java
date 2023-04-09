@@ -12,74 +12,33 @@ import java.util.Objects;
 @Slf4j
 public class Checker {
 
-    public static boolean checkFileValidityForRead(File file) {
+    public static boolean checkFileValidityForRead(File file) throws IOException {
         return checkFileExists(file) && checkFileToRead(file);
     }
 
-    private static boolean checkFileToRead(File file) {
+    private static boolean checkFileToRead(File file) throws IOException {
         if (!file.canRead()) {
-            try {
-                throw new IOException(String.format("-r for file: %s", file.getPath()));
-            } catch (IOException e) {
-                log.error(e.getMessage(), e);
-                System.out.println(e.getMessage());
-                return false;
-            }
-        }
-        return true;
-    }
-    private static boolean checkFileExists(File file) {
-        if (!(file.exists() && file.isFile())) {
-            try {
-                throw new FileNotFoundException(String.format("Файл по данному пути не найден: %s", file.getPath()));
-            } catch (FileNotFoundException e) {
-                log.error(e.getMessage(), e);
-                System.out.println(e.getMessage());
-                return false;
-            }
+            throw new IOException(String.format("-r for file: %s", file.getPath()));
         }
         return true;
     }
 
-    public static boolean checkFileValidityForWrite(File file) {
+    private static boolean checkFileExists(File file) throws FileNotFoundException {
+        if (!(file.exists() && file.isFile())) {
+            throw new FileNotFoundException(String.format("Файл по данному пути не найден: %s", file.getPath()));
+        }
+        return true;
+    }
+
+    public static boolean checkFileValidityForWrite(File file) throws IOException {
         return checkFileExists(file) && checkFileToWrite(file);
     }
 
-    private static boolean checkFileToWrite(File file) {
+    private static boolean checkFileToWrite(File file) throws IOException {
         if (!file.canWrite()) {
-            try {
-                throw new IOException(String.format("-w for file: %s", file.getPath()));
-            } catch (IOException e) {
-                log.error(e.getMessage(), e);
-                System.out.println(e.getMessage());
-                return false;
-            }
+            throw new IOException(String.format("-w for file: %s", file.getPath()));
         }
         return true;
     }
 
-    public static boolean checkDataToParse(String line) {
-        if (line.trim().isEmpty()) {
-            try {
-                throw new IllegalAccessException("Empty line");
-            } catch (IllegalAccessException e) {
-                log.error(e.getMessage(), e);
-            }
-        }
-        return !line.trim().isEmpty();
-    }
-
-    public static String getEnvValidity(String env) {
-        if (!Objects.isNull(env)) {
-            return env;
-        } else {
-            try {
-                throw new FileNotFoundException("Path doesn't exist");
-            } catch (FileNotFoundException e) {
-                log.error(e.getMessage(), e);
-                System.out.println(e.getMessage());
-                return "";
-            }
-        }
-    }
 }

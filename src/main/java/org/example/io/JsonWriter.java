@@ -37,7 +37,7 @@ public class JsonWriter<T> {
     /**
      * Если файл с исходными данными - user-write, то предлагаем ввести путь до файла
      */
-    public void writeToFileCollection(File file, List<T> collection) {
+    public void writeToFileCollection(File file, List<T> collection) throws IOException {
         File value = file;
         if (!Checker.checkFileValidityForWrite(file)) {
             value = getFileFromUserInput();
@@ -49,7 +49,7 @@ public class JsonWriter<T> {
         }
     }
 
-    private File getFileFromUserInput() {
+    private File getFileFromUserInput() throws IOException {
         while (true) {
             String path = null;
             try {

@@ -1,21 +1,13 @@
 package org.example.commands;
 
 
-import org.example.collection.ProductCollection;
-import org.example.products.Product;
 
-import java.util.Collection;
-
-public class ShowCommand <T extends Collection<Product>> extends Command<T, Product> {
-    private final String description = "show: вывести в стандартный поток вывода все элементы коллекции в строковом представлении";
+public class ShowCommand extends Command {
     private final String name = "show";
-    public ShowCommand(ProductCollection<T> myCollection) {
-        super(myCollection);
-    }
+    private final Client client;
 
-    @Override
-    public String getDescription() {
-        return description;
+    public ShowCommand(Client client) {
+        this.client = client;
     }
 
     @Override
@@ -24,7 +16,7 @@ public class ShowCommand <T extends Collection<Product>> extends Command<T, Prod
     }
 
     @Override
-    public void execute(boolean scriptFlag, String ... args) {
-        super.getCollection().show();
+    public void execute(String ... args) {
+        client.send(CommandType.SHOW, null);
     }
 }

@@ -1,9 +1,10 @@
 package org.example.products;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public enum UnitOfMeasure {
+public enum UnitOfMeasure implements Serializable {
     METERS(1, "Meters(1)"),
     SQUARE_METERS(2, "Square meters(2)"),
     PCS(3, "Pcs(3)"),

@@ -52,7 +52,7 @@ public class JsonReader<T> {
      * Пустая строка игнорируется (Checker), получившийся T[] -> List<T>
      */
     private void parseSetElementsListFromFile(String data) {
-        if (Checker.checkDataToParse(data)) {
+        if (true) {
             try {
                 this.elementList = Arrays.asList(mapper.readValue(data, type));
             } catch (JsonProcessingException e) {

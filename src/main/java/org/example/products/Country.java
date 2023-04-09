@@ -1,9 +1,10 @@
 package org.example.products;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public enum Country {
+public enum Country implements Serializable {
     UNITED_KINGDOM(1, "UK(1)"),
     GERMANY(2, "Germany(2)"),
     NORTH_KOREA(3, "North Korea(3)");

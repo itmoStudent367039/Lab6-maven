@@ -4,13 +4,12 @@ import org.example.products.Product;
 
 import java.util.Collection;
 
-public class ExitCommand<T extends Collection<Product>> extends Command<T, Product> {
-    private String description = "exit: завершить программу (без сохранения в файл)";
+public class ExitCommand extends Command {
     private String name = "exit";
+    private final Client client;
 
-    @Override
-    public String getDescription() {
-        return description;
+    public ExitCommand(Client client) {
+        this.client = client;
     }
 
     @Override
@@ -19,8 +18,7 @@ public class ExitCommand<T extends Collection<Product>> extends Command<T, Produ
     }
 
     @Override
-    public void execute(boolean scriptFlag, String ... args) {
-        System.out.println("Good Bye!");
-        System.exit(0);
+    public void execute(String ... args) {
+        client.exit();
     }
 }

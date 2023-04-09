@@ -3,10 +3,11 @@ package org.example.products;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Objects;
 @Data
 @JsonAutoDetect
-public class Coordinates implements Valid {
+public class Coordinates implements Valid, Serializable {
     private Long x;
     private double y;
     public Coordinates(Long x, double y) {

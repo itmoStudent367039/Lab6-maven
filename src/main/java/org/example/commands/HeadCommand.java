@@ -1,19 +1,14 @@
 package org.example.commands;
 
-import org.example.collection.TypeCollection;
-import org.example.products.Product;
 
-import java.util.Collection;
-import java.util.Objects;
-import java.util.Optional;
-
-public class HeadCommand<T extends Collection<Product>> extends Command<T, Product> {
-    private final String description = "head: вывести первый элемент коллекции";
+public class HeadCommand extends Command {
+    private final Client client;
     private final String name = "head";
 
-    public HeadCommand(TypeCollection<?, Product> collection) {
-        super(collection);
+    public HeadCommand(Client client) {
+        this.client = client;
     }
+
 
     @Override
     public String getName() {
@@ -21,17 +16,7 @@ public class HeadCommand<T extends Collection<Product>> extends Command<T, Produ
     }
 
     @Override
-    public String getDescription() {
-        return description;
-    }
-
-    @Override
-    public void execute(boolean scriptFlag, String ... args) {
-        Product product = super.getCollection().head();
-        if (Optional.ofNullable(product).isEmpty()) {
-            System.out.print(!scriptFlag ? "Collection is empty \n" : "");
-        } else {
-            System.out.println(product);
-        }
+    public void execute(String... args) {
+        client.send(CommandType.HEAD, null);
     }
 }

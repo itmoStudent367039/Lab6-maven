@@ -4,12 +4,13 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 @JsonAutoDetect
 @Getter
 @Setter
-public class Person implements Valid, Comparable<Person> {
+public class Person implements Valid, Comparable<Person>, Serializable {
     private String name;
     private int height;
     private Color eyeColor;

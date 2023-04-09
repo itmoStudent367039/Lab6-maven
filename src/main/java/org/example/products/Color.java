@@ -1,10 +1,11 @@
 package org.example.products;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public enum Color {
+public enum Color implements Serializable {
     BLACK(1, "Black(1)"),
     WHITE(2, "White(2)"),
     YELLOW(3, "Yellow(3)"),

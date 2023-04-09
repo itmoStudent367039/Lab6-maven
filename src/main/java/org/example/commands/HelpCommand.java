@@ -1,24 +1,11 @@
 package org.example.commands;
 
-
-import org.example.collection.ProductCollection;
-import org.example.products.Product;
-
-import java.util.Collection;
-import java.util.stream.Collectors;
-
-public class HelpCommand<T extends Collection<Product>> extends Command<T, Product> {
-    private CommandEditor<T> editor;
+public class HelpCommand extends Command {
     private final String name = "help";
-    private final String description = "help: вывести справку по доступным командам";
+    private final Client client;
 
-    public HelpCommand(ProductCollection<T> collection, CommandEditor<T> commandDirector) {
-        super(collection);
-        this.editor = commandDirector;
-    }
-    @Override
-    public String getDescription() {
-        return description;
+    public HelpCommand(Client client) {
+        this.client = client;
     }
 
     @Override
@@ -27,11 +14,7 @@ public class HelpCommand<T extends Collection<Product>> extends Command<T, Produ
     }
 
     @Override
-    public void execute(boolean scriptFlag, String ... args) {
-        System.out.println(editor.getCommandMap()
-                .values()
-                .stream()
-                .map(Command::getDescription)
-                .collect(Collectors.joining(System.lineSeparator())));
+    public void execute(String... args) {
+        client.send(CommandType.HELP, null);
     }
 }

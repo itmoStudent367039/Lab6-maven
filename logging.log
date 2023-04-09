@@ -1,0 +1,84 @@
+2023-04-03 23:27:42 ERROR Uncorrect input
+org.example.exceptions.ExecuteException: Uncorrect input
+	at org.example.commands.CountLessMeasure.execute(CountLessMeasure.java:21)
+	at org.example.commands.CommandEditor.execute(CommandEditor.java:34)
+	at org.example.application.Application.run(Application.java:49)
+	at org.example.CollectionRunner.main(CollectionRunner.java:29)
+2023-04-04 23:04:25 ERROR Uncorrect input
+org.example.exceptions.ExecuteException: Uncorrect input
+	at org.example.commands.CountLessMeasure.execute(CountLessMeasure.java:21)
+	at org.example.commands.CommandEditor.execute(CommandEditor.java:30)
+	at org.example.application.Application.run(Application.java:49)
+	at org.example.CollectionRunner.main(CollectionRunner.java:29)
+2023-04-05 11:04:49 ERROR No line found
+java.util.NoSuchElementException: No line found
+	at java.base/java.util.Scanner.nextLine(Scanner.java:1651)
+	at org.example.builders.ProductConsoleBuilder.input(ProductConsoleBuilder.java:30)
+	at org.example.builders.ProductConsoleBuilder.setName(ProductConsoleBuilder.java:46)
+	at org.example.builders.ProductDirector$1.<init>(ProductDirector.java:31)
+	at org.example.builders.ProductDirector.buildProduct(ProductDirector.java:29)
+	at org.example.commands.Client.createPerson(Client.java:30)
+	at org.example.commands.AddCommand.execute(AddCommand.java:21)
+	at org.example.commands.CommandEditor.execute(CommandEditor.java:21)
+	at org.example.application.Application.run(Application.java:49)
+	at org.example.CollectionRunner.main(CollectionRunner.java:29)
+2023-04-05 18:01:06 ERROR No line found
+java.util.NoSuchElementException: No line found
+	at java.base/java.util.Scanner.nextLine(Scanner.java:1651)
+	at org.example.builders.ProductConsoleBuilder.input(ProductConsoleBuilder.java:30)
+	at org.example.builders.ProductConsoleBuilder.setName(ProductConsoleBuilder.java:46)
+	at org.example.builders.ProductDirector$1.<init>(ProductDirector.java:31)
+	at org.example.builders.ProductDirector.buildProduct(ProductDirector.java:29)
+	at org.example.commands.Client.createPerson(Client.java:31)
+	at org.example.commands.AddCommand.execute(AddCommand.java:21)
+	at org.example.commands.CommandEditor.execute(CommandEditor.java:21)
+	at org.example.application.Application.run(Application.java:49)
+	at org.example.CollectionRunner.main(CollectionRunner.java:29)
+2023-04-05 22:19:06 ERROR Uncorrect input
+org.example.exceptions.ExecuteException: Uncorrect input
+	at org.example.commands.UpdateById.execute(UpdateById.java:29)
+	at org.example.commands.CommandEditor.execute(CommandEditor.java:21)
+	at org.example.application.Application.run(Application.java:49)
+	at org.example.CollectionRunner.main(CollectionRunner.java:29)
+2023-04-06 22:22:53 ERROR No line found
+java.util.NoSuchElementException: No line found
+	at java.base/java.util.Scanner.nextLine(Scanner.java:1651)
+	at org.example.builders.ProductConsoleBuilder.input(ProductConsoleBuilder.java:30)
+	at org.example.builders.ProductConsoleBuilder.setCoordinates(ProductConsoleBuilder.java:62)
+	at org.example.builders.ProductDirector$1.<init>(ProductDirector.java:32)
+	at org.example.builders.ProductDirector.buildProduct(ProductDirector.java:29)
+	at org.example.commands.Client.createPerson(Client.java:31)
+	at org.example.commands.AddCommand.execute(AddCommand.java:22)
+	at org.example.commands.CommandEditor.execute(CommandEditor.java:21)
+	at org.example.application.Application.run(Application.java:49)
+	at org.example.CollectionRunner.main(CollectionRunner.java:29)
+2023-04-07 11:17:12 ERROR No line found
+java.util.NoSuchElementException: No line found
+	at java.base/java.util.Scanner.nextLine(Scanner.java:1651)
+	at org.example.application.Application.getUserInput(Application.java:32)
+	at org.example.application.Application.run(Application.java:49)
+	at org.example.CollectionRunner.main(CollectionRunner.java:29)
+2023-04-09 10:39:16 ERROR Uncorrect input
+org.example.exceptions.ExecuteException: Uncorrect input
+	at org.example.commands.CountLessMeasure.execute(CountLessMeasure.java:23)
+	at org.example.commands.CommandEditor.execute(CommandEditor.java:25)
+	at org.example.application.Application.run(Application.java:49)
+	at org.example.CollectionRunner.main(CollectionRunner.java:29)
+2023-04-09 13:20:02 ERROR Uncorrect input
+org.example.exceptions.ExecuteException: Uncorrect input
+	at org.example.commands.CountLessMeasure.execute(CountLessMeasure.java:23)
+	at org.example.commands.CommandEditor.execute(CommandEditor.java:21)
+	at org.example.application.Application.run(Application.java:49)
+	at org.example.CollectionRunner.main(CollectionRunner.java:29)
+2023-04-09 16:20:06 ERROR Uncorrect input
+org.example.exceptions.ExecuteException: Uncorrect input
+	at org.example.commands.CountLessMeasure.execute(CountLessMeasure.java:23)
+	at org.example.commands.CommandEditor.execute(CommandEditor.java:21)
+	at org.example.application.Application.run(Application.java:49)
+	at org.example.CollectionRunner.main(CollectionRunner.java:32)
+2023-04-09 16:20:52 ERROR Uncorrect input
+org.example.exceptions.ExecuteException: Uncorrect input
+	at org.example.commands.CountLessMeasure.execute(CountLessMeasure.java:23)
+	at org.example.commands.CommandEditor.execute(CommandEditor.java:21)
+	at org.example.application.Application.run(Application.java:49)
+	at org.example.CollectionRunner.main(CollectionRunner.java:32)

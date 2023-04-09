@@ -1,7 +1,10 @@
 package org.example.exceptions;
 
 public class ExecuteException extends Exception {
-    public ExecuteException(final String massage) {
-        super(massage);
+    public ExecuteException(Throwable cause) {
+        super(cause);
+    }
+    public ExecuteException(String message) {
+        super(message);
     }
 }
